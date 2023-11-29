@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { computed } from 'vue';
+    import { computed, reactive, ref } from 'vue';
 import {product} from '../stores/counter'
     const StoreProduct = product()
     const count = 5
@@ -7,9 +7,16 @@ import {product} from '../stores/counter'
     const Isproduct = computed(() =>{
         return StoreProduct.productList.length>1 ? true : false
     })
+    //define title and id variable to link by form
+    const form = reactive({
+        id : '',
+        title : ''
+    })
 </script>
 
 <template>
+    <input type="text" v-model="form.title">
+    <input type="text" v-model="form.id">
     <div v-if="Isproduct == false">there is no product</div>
 <div v-if="Isproduct == true">
     <div v-for="x in StoreProduct.productList.length-1">
