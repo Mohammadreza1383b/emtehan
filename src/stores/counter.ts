@@ -1,7 +1,7 @@
 import { ref, computed, reactive } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('counter', () => {
+export const product = defineStore('counter', () => {
   
 
   type productModel = {
@@ -28,4 +28,6 @@ export const useCounterStore = defineStore('counter', () => {
       productList.slice(productList.indexOf(findProduct),1)
     }
   }
+
+  return{productList,AddProduct,RemoveProduct}
 })
