@@ -10,12 +10,12 @@ import {product} from '../stores/counter'
 </script>
 
 <template>
-    <div v-for="x in StoreProduct.productList.length">
     <div v-if="Isproduct == false">there is no product</div>
-    <div v-if="Isproduct == true">
-    
+<div v-if="Isproduct == true">
+    <div v-for="x in StoreProduct.productList.length-1">
+        <P>{{ StoreProduct.productList[x].title }} - {{ StoreProduct.productList[x].title }}</P>
     </div>
-    </div>
+</div>
 
 </template>
 
