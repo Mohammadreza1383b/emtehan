@@ -14,10 +14,7 @@ export const product = defineStore('counter', () => {
       id : 'defalt',
       title : 'defalt'
     },
-    {
-      id : '1',
-      title : 'test'
-    }
+    
   ]);
 
   function AddProduct(inputProduct : productModel) {

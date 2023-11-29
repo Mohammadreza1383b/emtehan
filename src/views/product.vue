@@ -1,6 +1,7 @@
 <script setup lang="ts">
     import { computed, reactive, ref } from 'vue';
-import {product} from '../stores/counter'
+    import {product} from '../stores/counter'
+
     const StoreProduct = product()
     const count = 5
     //this can use in template section but template lose his organization and it better computed to do a logic and it is better to function becouse it have buffer
@@ -15,17 +16,26 @@ import {product} from '../stores/counter'
 </script>
 
 <template>
-    <input type="text" v-model="form.title">
-    <input type="text" v-model="form.id">
+    <input class="input" placeholder="title" type="text" v-model="form.title">
+    <input class="input" placeholder="id" type="text" v-model="form.id">
+    <button style="margin: 10px;" @click="StoreProduct.AddProduct({id :form.id , title : form.title})">Add</button>
+    <br>
     <div v-if="Isproduct == false">there is no product</div>
 <div v-if="Isproduct == true">
-    <div v-for="x in StoreProduct.productList.length-1">
-        <P>{{ StoreProduct.productList[x].title }} - {{ StoreProduct.productList[x].title }}</P>
+    <div class="product" v-for="x in StoreProduct.productList.length-1">
+        <P>{{ x }} -  {{ StoreProduct.productList[x].id }} - {{ StoreProduct.productList[x].title }}</P>
     </div>
 </div>
 
 </template>
 
 <style>
+    .input{
+        margin: 10px;
+    }
 
+    .product{
+        border: 2px solid green;
+        border-radius: 10px;
+    }
 </style>
