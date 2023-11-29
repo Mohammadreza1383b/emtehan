@@ -11,8 +11,8 @@ export const product = defineStore('counter', () => {
 
   const productList = reactive([
     {
-      id : '',
-      title : ''
+      id : 'defalt',
+      title : 'defalt'
     }
   ]);
 
