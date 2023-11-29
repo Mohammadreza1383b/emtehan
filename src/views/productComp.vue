@@ -13,6 +13,8 @@
         id : '',
         title : ''
     })
+
+    const emit = defineEmits(['delete'])
 </script>
 
 <template>
@@ -22,7 +24,7 @@
     <br>
     <div v-if="Isproduct == false">there is no product</div>
 <div v-if="Isproduct == true">
-    <div class="product" v-for="x in StoreProduct.productList.length-1">
+    <div  @dblclick="$emit('delete',StoreProduct.productList[x].id)" class="product" v-for="x in StoreProduct.productList.length-1">
         <P>{{ x }} -  {{ StoreProduct.productList[x].id }} - {{ StoreProduct.productList[x].title }}</P>
     </div>
 </div>

@@ -1,7 +1,9 @@
 <script setup lang="ts">
-    import product from './product.vue';
+    import productComp from './productComp.vue';
+    import {product} from '../stores/counter'
+    const StoreProduct = product()
 </script>
 
 <template>
-  <product/>
+  <productComp @delete="StoreProduct.RemoveProduct('1')"/>
 </template>

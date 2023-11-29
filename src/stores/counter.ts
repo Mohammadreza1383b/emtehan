@@ -21,13 +21,12 @@ export const product = defineStore('counter', () => {
     productList.push(inputProduct)
   }
 
-  function RemoveProduct(INPid : number) {
+  function RemoveProduct(INPid : String) {
     //find product by id 
-    const findProduct = productList.find(item => item.id);
-    if (findProduct != null) {
+     const findProduct = productList.find(item => item.id == INPid);
       //first find index of product that find and remove by slice that remove 1 from idex
-      productList.slice(productList.indexOf(findProduct),1)
-    }
+      console.log(productList.indexOf(findProduct!));
+      productList.slice(productList.indexOf(findProduct!),1)
   }
 
   return{productList,AddProduct,RemoveProduct}
