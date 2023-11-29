@@ -3,11 +3,15 @@ import { defineStore } from 'pinia'
 
 export const product = defineStore('counter', () => {
   
+  //this is store for store data and organize 
 
+  //define model
   type productModel = {
     id : '',
     title : '',
   }
+
+  //define a product list in by defalt value
 
   const productList = reactive([
     {
