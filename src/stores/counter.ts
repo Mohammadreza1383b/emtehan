@@ -1,12 +1,31 @@
-import { ref, computed } from 'vue'
+import { ref, computed, reactive } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+  
+
+  type productModel = {
+    id : '',
+    title : '',
   }
 
-  return { count, doubleCount, increment }
+  const productList = reactive([
+    {
+      id : '',
+      title : ''
+    }
+  ]);
+
+  function AddProduct(inputProduct : productModel) {
+    productList.push(inputProduct)
+  }
+
+  function RemoveProduct(INPid : number) {
+    //find product by id 
+    const findProduct = productList.find(item => item.id);
+    if (findProduct != null) {
+      //first find index of product that find and remove by slice that remove 1 from idex
+      productList.slice(productList.indexOf(findProduct),1)
+    }
+  }
 })
